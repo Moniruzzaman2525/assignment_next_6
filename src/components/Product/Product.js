@@ -3,8 +3,6 @@ import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { StarIcon } from "@heroicons/react/24/solid";
-import { useDispatch } from "react-redux";
-import { addComponent } from "@/redux/features/pcbuild/pcbuildSlice";
 import { useSession } from "next-auth/react";
 
 function Product({

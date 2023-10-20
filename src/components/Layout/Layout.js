@@ -17,10 +17,10 @@ const Layout = ({ children }) => {
           name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
         />
-        <title>PC Builder</title>
+        <title>Gadget Galaxy</title>
         <meta
           name="description"
-          content="E-commerce website build 💗 🔥 by Hazrat Ali"
+          content="E-commerce website build 💗 🔥 by Md Moniruzzaman"
         />
         <link
           rel="apple-touch-icon"

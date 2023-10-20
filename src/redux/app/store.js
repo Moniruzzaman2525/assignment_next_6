@@ -1,19 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { createWrapper } from "next-redux-wrapper";
+
+import { configureStore } from "@reduxjs/toolkit";;
+import authReducer from "../Slice/authSlice";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { apiSlice } from "../features/api/apiSlice";
-import pcbuildReducer from "../features/pcbuild/pcbuildSlice";
 
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    pcbuild: pcbuildReducer,
+    auth: authReducer,
   },
-  middleware: (getDefaultMiddlewares) =>
-    getDefaultMiddlewares({
-      serializableCheck: false,
-    }).concat(apiSlice.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools: true,
 });
-
-const makeStore = () => store;
-
-export const wrapper = createWrapper(makeStore, { debug: false });
+setupListeners(store.dispatch);

@@ -1,26 +1,41 @@
-import { AdjustmentsVerticalIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
+import { useGetFeatherQuery } from "@/redux/features/productFeather/productFeather";
+import { useRouter } from "next/router";
 import React from "react";
 
-const Categories = ({ categories }) => {
+const Categories = () => {
+  const router = useRouter()
+  const { data: productFeather, isLoading, isError } = useGetFeatherQuery()
+  const opneProduct = (item)=>{
+    router.push(`products/${item.dis}`);
+  }
   return (
-    <div>
-      <h2 className="text-center capitalize text-2xl font-semibold mb-10">
-        Featured Categories
-      </h2>
-      <div className="flex items-center w-full max-w-screen-xl sm:mb-20 mb-16 gap-4  mx-auto overflow-x-auto hideScrollBar capitalize text-sm font-medium">
-        <div>
-          <AdjustmentsVerticalIcon className="w-6" />
-        </div>
-        {categories?.map((category, i) => (
-          <div
-            key={`category-${i}`}
-            className={`py-2 px-6 bg-white text-center whitespace-nowrap rounded hover:bg-blue-light hover:text-white transition-all cursor-pointer ease-in-out duration-200 shadow `}
-          >
-            <Link href={`/categories/${category?.name}`}>{category?.name}</Link>
-          </div>
-        ))}
+    <div className="">
+      <div className="pb-10">
+        <h2 className="text-center capitalize pb-[5px] text-[20px] leading-[26px] font-semibold ">
+          Featured Category
+        </h2>
+        <p className="text-[15px] text-center text-[#01132d] leading-[26px] font-normal">Get Your Desired Product from Featured Category!</p>
       </div>
+
+      <div className="flex justify-center w-full">
+        <div className="flex flex-wrap justify-center">
+          {productFeather?.data?.map((item, i) => (
+            <button
+            onClick={()=>opneProduct(item)}
+              key={`category-${i}`}
+              className="w-[150px] flex flex-col px-5 py-5 gap-2 items-center m-2 bg-white rounded-xl shadow-2xl"
+            >
+              <div className="w-1/3">
+                <img src={item.featherPhoto} className="w-[60px]" alt={item.featherName} />
+              </div>
+              <div>
+              <h2>{item.featherName}</h2>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 };
