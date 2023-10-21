@@ -1,9 +1,6 @@
 import Card from "@/components/Shared/SingleCard/Card";
-import { useState } from "react";
 
 const ProductDetails = ({ item }) => {
-    const [routePath, setRoutePath] = useState('abcd')
-    // getStaticPaths(routePath)
     return (
         <div>
             <Card item={item} />

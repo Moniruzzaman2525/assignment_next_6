@@ -21,10 +21,29 @@ const featherAPI = apiSlice.injectEndpoints({
           };
         },
       }),
+    getUserProfile: builder.query({
+        query: () => {
+          return {
+            url: `/api/v1/auth/get-user-profile`,
+            method: "GET",
+          };
+        },
+      }),
+    updateProfile: builder.mutation({
+        query: (data) => {
+          return {
+            url: `/api/v1/auth/update-profile`,
+            method: "PATCH",
+            body: data,
+          };
+        },
+      }),
   }),
 });
 
 export const {
     useCreateUserMutation,
-    useLoginUserMutation
+    useLoginUserMutation,
+    useGetUserProfileQuery,
+    useUpdateProfileMutation
   } = featherAPI;
