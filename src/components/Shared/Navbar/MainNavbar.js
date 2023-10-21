@@ -1,10 +1,8 @@
 
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-import { useSession } from "next-auth/react";
-import Link from "next/link";
 import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 function MainNavbar() {
   const router = useRouter();
@@ -16,6 +14,7 @@ function MainNavbar() {
     }
   }, [router]);
   const logOut = () => {
+    toast.success("Your Account Logout Successfully..!");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
@@ -53,7 +52,7 @@ function MainNavbar() {
                   <h2>or</h2>
                   <button onClick={() => router.push('/sign-in')}>Login</button>
                 </div> : <div className="flex text-[11px] gap-1">
-                  <button onClick={() => router.push('/sign-up')}>Profile</button>
+                  <button onClick={() => router.push('/profile')}>Profile</button>
                   <h2>or</h2>
                   <button onClick={logOut}>Logout</button>
                 </div>}

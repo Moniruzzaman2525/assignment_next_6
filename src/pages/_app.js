@@ -3,6 +3,7 @@ import { store, wrapper } from "@/redux/app/store";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import "@/styles/globals.css";
+import { Toaster } from "react-hot-toast";
 
 export default function App({
   Component,
@@ -13,8 +14,13 @@ export default function App({
       <Provider store={store}>
         <Layout>
           <Component {...pageProps} />
+          <Toaster
+            position="top-center"
+            reverseOrder={true}
+          />
         </Layout>
       </Provider>
     </SessionProvider>
+
   );
 }

@@ -2,7 +2,6 @@ import Banner from "@/components/Banner/Banner";
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import FeedbackForm from "@/components/FeedbackForm/FeedbackForm";
 import ProductFeed from "@/components/Product/ProductFeed";
-import { useRouter } from "next/router";
 
 export default function Home({ products, categories }) {
 
@@ -12,6 +11,7 @@ export default function Home({ products, categories }) {
       <ProductFeed products={products} categories={categories} />
       <ChooseUs />
       <FeedbackForm />
+     
     </>
   );
 }

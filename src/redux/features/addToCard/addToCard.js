@@ -25,6 +25,15 @@ const featherAPI = apiSlice.injectEndpoints({
             },
             invalidatesTags: ["cart-tags"],
         }),
+        getOrderProduct: builder.query({
+            query: () => {
+                return {
+                    url: `/api/v1/product/get-all-order-products`,
+                    method: "GET",
+                };
+            },
+            invalidatesTags: ["cart-tags"],
+        }),
         deleteToCart: builder.mutation({
             query: (id) => ({
               url: `/api/v1/product/delete-to-cart/${id}`,
@@ -32,11 +41,22 @@ const featherAPI = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ["cart-tags"],
           }),
+          confirmProduct: builder.mutation({
+            query: () => {
+                return {
+                    url: `/api/v1/product/get-order-products`,
+                    method: "POST",
+                };
+            },
+           
+        }),
     }),
 });
 
 export const {
     useAddToCartProductMutation,
     useGetAddToCartProductsQuery,
-    useDeleteToCartMutation
+    useDeleteToCartMutation,
+    useConfirmProductMutation,
+    useGetOrderProductQuery
 } = featherAPI;

@@ -1,5 +1,7 @@
 import { useAddFeedBackMutation } from '@/redux/features/userFeedBack/FeedBack';
 import React from 'react';
+import Loader from '../Shared/Loader/Loader';
+import toast from 'react-hot-toast';
 
 const FeedFrom = () => {
     const [addFeedBack, resInfo] = useAddFeedBackMutation()
@@ -11,14 +13,15 @@ const FeedFrom = () => {
         const comment = form.comments.value;
         const suggestions = form.Suggestions.value;
         const data = {
-          name,
-          email,
-          comment,
-          suggestions
+            name,
+            email,
+            comment,
+            suggestions
         }
         await addFeedBack(data)
+        toast.success("Your feed back send successfully..!");
         e.target.reset()
-      };
+    };
     return (
         <div className='flex flex-col'>
             <form onSubmit={handleFeedBack}>
@@ -77,11 +80,15 @@ const FeedFrom = () => {
                     </div>
                 </div>
                 <div className='flex justify-center py-2'>
-                    <button
+                    {resInfo.isLoading ? <button
+                        className="button border-0 lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center"
+                    > 
+                    <Loader />
+                    </button> : <button
                         className="button border-0 lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center"
                     >
                         Send Feedback
-                    </button>
+                    </button>}
                 </div>
             </form>
         </div>

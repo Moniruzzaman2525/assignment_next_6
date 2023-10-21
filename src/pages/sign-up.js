@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useCreateUserMutation } from "@/redux/features/auth/userAuth";
 import Loader from "@/components/Shared/Loader/Loader";
+import { toast } from "react-hot-toast";
 
 
 const SignIn = () => {
@@ -24,7 +25,7 @@ const SignIn = () => {
     }
   }, [resInfo, router]);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const lastName = form.lastName.value;
@@ -39,7 +40,10 @@ const SignIn = () => {
       password,
       confirmPassword
     }
-    createUser(data);
+      const res = await createUser(data);
+      if (res) {
+        toast.success("Register Your Account Successfully..!");
+      }
   };
   return (
     <div className="flex flex-wrap justify-center items-center w-full h-screen bg-white bg-opacity-20 dark:bg-boxdark px-2 lg:px-0">

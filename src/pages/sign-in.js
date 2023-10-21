@@ -3,6 +3,7 @@ import { useLoginUserMutation } from "@/redux/features/auth/userAuth";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const SignIn = () => {
@@ -25,7 +26,7 @@ const SignIn = () => {
   }, [resInfo, router]);
 
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -34,7 +35,10 @@ const SignIn = () => {
       email, 
       password
     }
-    loginUser(data);
+   const res = await loginUser(data);
+   if (res) {
+    toast.success("Your Account Login Successfully..!");
+   }
   };
 
   return (
