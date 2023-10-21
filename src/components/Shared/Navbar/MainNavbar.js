@@ -30,7 +30,7 @@ function MainNavbar() {
         <div className="flex items-center w-full max-w-screen-xl py-2 xl:space-x-16 lg:space-x-12  space-x-7  mx-auto">
           <div className="flex items-center font-extrabold">
             <button onClick={() => router.push('/')}>
-              <img src="https://i.ibb.co/bNr1gnF/07c33adb-c674-4f85-9253-71d7eabd1c6a-removebg-preview.png" alt="07c33adb-c674-4f85-9253-71d7eabd1c6a-removebg-preview" border="0" width='150' />
+              <img  draggable={false} src="https://i.ibb.co/bNr1gnF/07c33adb-c674-4f85-9253-71d7eabd1c6a-removebg-preview.png" alt="07c33adb-c674-4f85-9253-71d7eabd1c6a-removebg-preview" border="0" width='150' />
             </button>
           </div>
           <div className="flex-grow">

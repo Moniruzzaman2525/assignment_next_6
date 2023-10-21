@@ -135,6 +135,7 @@ const PostProduct = () => {
               {selectedImage ? (
                 <div>
                   <img
+                   draggable={false}
                     src={URL.createObjectURL(selectedImage)}
                     alt="Selected Feather"
                     className="w-full h-36 object-cover rounded-md"

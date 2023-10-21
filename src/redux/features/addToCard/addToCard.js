@@ -23,11 +23,20 @@ const featherAPI = apiSlice.injectEndpoints({
                     method: "GET",
                 };
             },
+            invalidatesTags: ["cart-tags"],
         }),
+        deleteToCart: builder.mutation({
+            query: (id) => ({
+              url: `/api/v1/product/delete-to-cart/${id}`,
+              method: "DELETE",
+            }),
+            invalidatesTags: ["cart-tags"],
+          }),
     }),
 });
 
 export const {
     useAddToCartProductMutation,
-    useGetAddToCartProductsQuery
+    useGetAddToCartProductsQuery,
+    useDeleteToCartMutation
 } = featherAPI;

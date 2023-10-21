@@ -1,130 +1,92 @@
+import { useDeleteToCartMutation } from '@/redux/features/addToCard/addToCard';
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-const Card = () => {
+const Card = ({ item, refetch }) => {
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [deleteToCart, resInfo] = useDeleteToCartMutation()
+    useEffect(() => {
+        const prices = item?.map(item => parseFloat(item?.price));
+        const total = prices?.reduce((acc, price) => acc + price, 0);
+        setTotalPrice(total);
+    }, [item]);
+
+    const casedPage = () => {
+        window.location.reload()
+    }
+    const deleteToCartItem = async (id) => {
+        await deleteToCart(id)
+        await refetch()
+    }
+
     return (
-        <div>
+        <div className={`${item?.length === 0 ? 'shadow-2xl h-[calc(100vh-350px)]' : 'shadow-2xl h-auto'}`}>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
                 <h2 className="mb-4 text-2xl font-semibold leadi">Invoices</h2>
                 <div className="overflow-x-auto">
                     <table className="min-w-full text-xs">
                         <colgroup>
-                            {/* <col>
-                                <col>
-                                    <col>
-                                        <col>
-                                            <col> */}
-                            {/* <col className="w-24"> */}
                         </colgroup>
                         <thead className="dark:bg-gray-700">
                             <tr className="text-left">
-                                <th className="p-3">Invoice #</th>
-                                <th className="p-3">Client</th>
-                                <th className="p-3">Issued</th>
-                                <th className="p-3">Due</th>
-                                <th className="p-3 text-right">Amount</th>
-                                <th className="p-3">Status</th>
+                                <th className="p-3 bg-gray-200 text-lg">Photo</th>
+                                <th className="p-3 bg-gray-200 text-lg">Product Name</th>
+                                <th className="p-3 bg-gray-200 text-lg">Quantity</th>
+                                <th className="p-3 bg-gray-200 text-lg text-right">Unit Price</th>
+                                <th className="p-3 bg-gray-200 text-lg text-right">Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                <td className="p-3">
-                                    <p>97412378923</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>Microsoft Corporation</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>14 Jan 2022</p>
-                                    <p className="dark:text-gray-400">Friday</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>01 Feb 2022</p>
-                                    <p className="dark:text-gray-400">Tuesday</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <p>$15,792</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                        <span>Pending</span>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                <td className="p-3">
-                                    <p>97412378923</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>Tesla Inc.</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>14 Jan 2022</p>
-                                    <p className="dark:text-gray-400">Friday</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>01 Feb 2022</p>
-                                    <p className="dark:text-gray-400">Tuesday</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <p>$275</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                        <span>Pending</span>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                <td className="p-3">
-                                    <p>97412378923</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>Coca Cola co.</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>14 Jan 2022</p>
-                                    <p className="dark:text-gray-400">Friday</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>01 Feb 2022</p>
-                                    <p className="dark:text-gray-400">Tuesday</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <p>$8,950,500</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                        <span>Pending</span>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                                <td className="p-3">
-                                    <p>97412378923</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>Nvidia Corporation</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>14 Jan 2022</p>
-                                    <p className="dark:text-gray-400">Friday</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>01 Feb 2022</p>
-                                    <p className="dark:text-gray-400">Tuesday</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <p>$98,218</p>
-                                </td>
-                                <td className="p-3 text-right">
-                                    <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                        <span>Pending</span>
-                                    </span>
-                                </td>
-                            </tr>
+                            {item?.map((data) => <>
+                                <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
+                                    <td className="p-3">
+                                        <img
+                                            src={data?.img}
+                                            alt={data?.img}
+                                            width="70"
+                                            height="70"
+                                            draggable={false}
+                                        />
+                                    </td>
+                                    <td className="p-3">
+                                        <p>{data?.name}</p>
+                                    </td>
+                                    <td className="p-3 flex gap-2">
+                                        <input
+                                            name="email"
+                                            required
+                                            defaultValue={1}
+                                            type="email"
+                                            placeholder="Enter your email"
+                                            className="w-1/3 rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primaryBlue focus-visible:shadow-none dark:border-form-primaryBlue dark:bg-form-input dark:focus:border-primaryBlue placeholder:text-white dark:placeholder-white dark:text-white"
+                                        />
+                                        <button onClick={casedPage}>
+                                            <i class="material-icons">cached</i>
+                                        </button>
+                                        <button onClick={()=> deleteToCartItem(data?._id)}>
+                                            <i class="material-icons">clear</i>
+                                        </button>
+                                    </td>
+                                    <td className="p-3 text-right">
+                                        <p className="dark:text-gray-400">{data?.price}</p>
+                                    </td>
+                                    <td className="p-3 text-right">
+                                        <p>{data?.price}</p>
+                                    </td>
+                                </tr>
+                            </>)}
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className='flex flex-col gap-5 items-end py-10 px-24'>
+                <h3 className='text-lg border-b py-2 w-1/4 text-end'>Sub-Total: <span className='ml-10 text-[#ef4a23] bold'>${totalPrice}</span></h3>
+                <h3 className='text-lg border-b py-2 w-1/4 text-end'>Total: <span className='ml-10 text-[#ef4a23] bold'>${totalPrice}</span></h3>
+            </div>
+            <div className='flex justify-between py-10 px-24'>
+                <button className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center">Continue Shopping</button>
+                <button className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center">Confirm Order</button>
             </div>
         </div>
     );

@@ -17,6 +17,7 @@ const HomePageCard = ({ item }) => {
                             alt={item?.image}
                             width="228"
                             height="228"
+                            draggable={false}
                         />
                     </button>
                 </div>

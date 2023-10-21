@@ -35,6 +35,7 @@ const Card = ({ item }) => {
                 <div className="p-item-img text-center">
                     <button onClick={() => productDetails(item._id)}>
                         <img
+                         draggable={false}
                             src={item?.image}
                             alt={item?.image}
                             className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto"

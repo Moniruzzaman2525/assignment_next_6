@@ -17,13 +17,13 @@ function Footer() {
     );
   };
   return (
-    <div className="bg-gray-800  py-8 px-6 text-gray-200  lg:text-base text-sm">
+    <div className="bg-gray-800 flex py-8 px-6 text-gray-200  lg:text-base text-sm">
       <div className="max-w-screen-xl w-full mx-auto">
         <div className="flex justify-between items-center">
           <div className="flex items-center lg:space-x-8 space-x-4">
             <Link href="/">
               <span className="cursor-pointer hover:text-white">
-              <img src="https://i.ibb.co/nPDdbzz/blob-3-removebg-preview.png" alt="blob-3-removebg-preview" border="0" width='228' />
+              <img  draggable={false} src="https://i.ibb.co/nPDdbzz/blob-3-removebg-preview.png" alt="blob-3-removebg-preview" border="0" width='228' />
               </span>
             </Link>
             {/* {!admin ? (
@@ -37,6 +37,7 @@ function Footer() {
           <div className="flex items-center space-x-4 md:space-x-6">
             <div className="md:w-6 w-5  my-auto">
               <Image
+               draggable={false}
                 width={25}
                 height={25}
                 src="/img/social/email.svg"
@@ -48,6 +49,7 @@ function Footer() {
             </div>
             <div className="md:w-6 w-5 my-auto">
               <Image
+               draggable={false}
                 width={25}
                 height={25}
                 src="/img/social/linkedin.svg"
@@ -61,6 +63,7 @@ function Footer() {
             </div>
             <div className="md:w-6 w-5 my-auto">
               <Image
+               draggable={false}
                 width={25}
                 height={25}
                 src="/img/social/github.svg"

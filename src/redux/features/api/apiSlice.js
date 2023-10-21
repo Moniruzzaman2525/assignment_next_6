@@ -44,6 +44,9 @@ const baseQueryWithRefresh = async (args, api, extraOptions) => {
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithRefresh,
+  tagTypes: [
+    'cart-tags'
+  ],
   extractRehydrationInfo(action, { reducerPath }) {
   if (action.type === HYDRATE) {
       return action.payload[reducerPath];

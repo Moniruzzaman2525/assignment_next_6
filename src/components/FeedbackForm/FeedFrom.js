@@ -20,9 +20,9 @@ const FeedFrom = () => {
         e.target.reset()
       };
     return (
-        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col'>
             <form onSubmit={handleFeedBack}>
-                <div className='grid grid-cols-2 gap-4 bg-[#f5f5f5] p-5 rounded-lg '>
+                <div className='my-4 grid grid-cols-2 gap-4 bg-[#f5f5f5] p-5 rounded-lg '>
                     <div>
                         <label className="mb-2.5 block font-medium text-black dark:text-white">
                             Your Name
@@ -48,7 +48,7 @@ const FeedFrom = () => {
                         />
                     </div>
                 </div>
-                <div className='bg-[#f5f5f5] p-5 rounded-lg '>
+                <div className='my-4 bg-[#f5f5f5] p-5 rounded-lg '>
                     <div>
                         <label className="mb-2.5 block font-medium text-black dark:text-white">
                             Your Comments
@@ -62,7 +62,7 @@ const FeedFrom = () => {
                         />
                     </div>
                 </div>
-                <div className='bg-[#f5f5f5] p-5 rounded-lg '>
+                <div className='my-4 bg-[#f5f5f5] p-5 rounded-lg '>
                     <div>
                         <label className="mb-2.5 block font-medium text-black dark:text-white">
                             Your Suggestions

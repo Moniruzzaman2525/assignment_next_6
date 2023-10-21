@@ -26,7 +26,7 @@ const Categories = () => {
               className="w-[150px] flex flex-col px-5 py-5 gap-2 items-center m-2 bg-white rounded-xl shadow-2xl"
             >
               <div className="w-1/3">
-                <img src={item.featherPhoto} className="w-[60px]" alt={item.featherName} />
+                <img  draggable={false} src={item.featherPhoto} className="w-[60px]" alt={item.featherName} />
               </div>
               <div>
               <h2>{item.featherName}</h2>

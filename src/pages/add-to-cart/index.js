@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 
 const Index = () => {
     const router = useRouter()
-    const {data, isLoading, isError} = useGetAddToCartProductsQuery()
+    const {data, isLoading, isError, refetch} = useGetAddToCartProductsQuery()
     useEffect(() => {
         if (typeof window !== "undefined") {
             const accessToken = localStorage.getItem("accessToken");
@@ -17,7 +17,7 @@ const Index = () => {
     }, [router]);
     return (
         <div className='mt-20'>
-            <Card />
+            <Card item={data?.data} refetch={refetch} />
         </div>
     );
 };

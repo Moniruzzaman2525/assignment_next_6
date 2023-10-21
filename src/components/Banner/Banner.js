@@ -39,6 +39,7 @@ function Banner() {
               src="/img/hero.svg"
               alt=""
               width={600}
+              draggable={false}
               height={600}
               objectFit="contain"
             />

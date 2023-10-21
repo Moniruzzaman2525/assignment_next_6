@@ -32,6 +32,7 @@ const Card = ({item}) => {
                                 alt={item?.image}
                                 width="500"
                                 height="500"
+                                draggable={false}
                             />
                         </div>
                     </div>

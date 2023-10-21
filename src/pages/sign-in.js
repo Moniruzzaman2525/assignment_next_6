@@ -38,8 +38,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center items-center w-full h-screen bg-white bg-opacity-20 dark:bg-boxdark px-2 lg:px-0">
-      <div className="w-full border-stroke dark:border-strokedark md:w-1/2 lg:w-1/3 flex justify-center items-center">
+    <div className="flex  flex-wrap justify-center items-center w-full h-screen bg-white bg-opacity-20 dark:bg-boxdark px-2 lg:px-0">
+      <div className="w-full border-stroke dark:border-strokedark md:w-1/2 lg:w-[35%] flex justify-center items-center">
         <div className="w-full p-5 md:px-10 my-5 md:my-10 lg:my-20 sm:p-12.5 glass dark:glass rounded-xl xl:p-17.5">
           <h2 className="my-8 md:text-2xl font-bold text-black dark:text-white sm:text-title-xl2 text-center">
             Sign In Gadget Galaxy
@@ -104,15 +104,15 @@ const SignIn = () => {
                 </span>
               </div>
             </div>
-            <div className="flex justify-center items-center mb-5">
+            <div className="flex w-full justify-center items-center mb-5">
               {resInfo?.isLoading ? (
-                <button className="w-1/3 py-2 rounded-lg bg-primaryBlue text-white font-medium text-base hover:bg-primaryBlue focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primaryBlue">
+                <button className="w-full py-2 rounded-lg bg-primaryBlue text-white font-medium text-base hover:bg-primaryBlue focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primaryBlue">
                   <Loader />
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="w-1/3  cursor-pointer rounded-lg border border-primaryBlue bg-primaryBlue px-4 py-2 font-bold text-lg text-black transition hover:bg-opacity-90"
+                  className="w-full  cursor-pointer rounded-lg border border-primaryBlue bg-primaryBlue px-4 py-2 font-bold text-lg text-black transition hover:bg-opacity-90"
                 >
                   Sign In
                 </button>
