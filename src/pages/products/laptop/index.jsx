@@ -1,5 +1,5 @@
 import { useGetFeatherProductQuery } from '@/redux/features/productFeather/products';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from '@/components/Shared/Card/Card';
 import LoadingSpinner from '@/components/Shared/Loading/LoadingSpinner';
 import { useState } from 'react';

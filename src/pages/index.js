@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner/Banner";
+import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import ProductFeed from "@/components/Product/ProductFeed";
 import { wrapper } from "@/redux/app/store";
 import categoriesApi from "@/redux/features/categories/categoriesApi";
@@ -13,6 +14,7 @@ export default function Home({ products, categories }) {
     <>
       <Banner />
       <ProductFeed products={products} categories={categories} />
+      <ChooseUs />
     </>
   );
 }

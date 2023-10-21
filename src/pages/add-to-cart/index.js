@@ -6,7 +6,6 @@ import React, { useEffect } from 'react';
 const Index = () => {
     const router = useRouter()
     const {data, isLoading, isError} = useGetAddToCartProductsQuery()
-    console.log(data.data);
     useEffect(() => {
         if (typeof window !== "undefined") {
             const accessToken = localStorage.getItem("accessToken");

@@ -42,6 +42,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #1f2937;
   scroll-behavior: smooth;
+  background-color: white;
 }
 
 .heightFix,
@@ -82,6 +83,7 @@ body {
 
 .layout {
   min-width: 320px;
+  background-color: white;
 }
 .sideBarMenu {
   min-width: 250px;

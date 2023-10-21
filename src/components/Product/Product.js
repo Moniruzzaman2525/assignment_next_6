@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
+import { useDispatch } from "react-redux";
 
 function Product({
   id,
