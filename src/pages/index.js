@@ -2,14 +2,9 @@ import Banner from "@/components/Banner/Banner";
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import FeedbackForm from "@/components/FeedbackForm/FeedbackForm";
 import ProductFeed from "@/components/Product/ProductFeed";
-import { wrapper } from "@/redux/app/store";
-import categoriesApi from "@/redux/features/categories/categoriesApi";
-import productApi from "@/redux/features/product/productApi";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export default function Home({ products, categories }) {
-  const router = useRouter();
 
   return (
     <>

@@ -14,7 +14,8 @@ const ProductDetails = ({ item }) => {
 export default ProductDetails;
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`https://gadget-galaxy-green.vercel.app/api/v1/product/get-product`)
+    const res = await fetch(`https://gadget-galaxy-server-seven.vercel.app/api/v1/product/get-product`)
+    // const res = await fetch(`http://localhost:5000/api/v1/product/get-product`)
     const data = await res.json()
     const paths = data?.data?.map((pro) => ({
         params: { productId: pro._id }
@@ -24,7 +25,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const { params } = context
-    const res = await fetch(`https://gadget-galaxy-green.vercel.app/api/v1/product/get-product/${params.productId}`)
+    const res = await fetch(`hhttps://gadget-galaxy-server-seven.vercel.app/api/v1/product/get-product/${params.productId}`)
+    // const res = await fetch(`http://localhost:5000/api/v1/product/get-product/${params.productId}`)
     const data = await res.json()
     return {
         props: {
