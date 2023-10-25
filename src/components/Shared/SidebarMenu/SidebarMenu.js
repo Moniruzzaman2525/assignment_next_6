@@ -28,7 +28,7 @@ function SideBarMenu({ closeSideBar }) {
   return (
     <div className="relative h-full w-full sideBarMenu bg-white px-8 py-6  font-medium md:hidden">
       <Link href={"/"} className="font-bold">
-        PC BUILDER
+        Badget Galaxy
       </Link>
       <div className=" h-0.5 my-4 w-full bg-gray-100"></div>
       <div className="my-8">
@@ -62,13 +62,13 @@ function SideBarMenu({ closeSideBar }) {
         ) : (
           <span
             className="link text-blue-light text-lg"
-            onClick={() => signIn()}
+            onClick={() => router.push('/sign-in')}
           >
             Login
           </span>
         )}
       </div>
-      <div className="gap-4 flex flex-col">
+      <div className="gap-4 hidden flex flex-col">
         <div>
           <span
             onClick={() => sideBarClickHandler("/")}
@@ -117,7 +117,7 @@ function SideBarMenu({ closeSideBar }) {
           </div>
         )} */}
       </div>
-      <div className="absolute top-2 right-2">
+      <div className="absolute top-2 hidden right-2">
         <XMarkIcon className="w-7" onClick={closeSideBar} />
       </div>
     </div>

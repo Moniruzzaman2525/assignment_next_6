@@ -17,17 +17,18 @@ function MobileNavbar() {
         <div className="flex items-center w-full justify-between  mb-4">
           <div className="flex items-center space-x-4">
             <div>
-              <Bars3Icon className="w-8" onClick={() => setShowBar(true)} />
+              <Bars3Icon className="w-8 cursor-pointer" onClick={() => setShowBar(true)} />
             </div>
             <Link href={"/"} className="flex items-center font-bold">
-              PC BUILDER
+              Gadget Galaxy
             </Link>
           </div>
           <div
             className="relative cursor-pointer"
-            onClick={() => router.push("/pc-builder")}
+            onClick={() => router.push("/add-to-cart")}
           >
-            <ComputerDesktopIcon className="xl:w-10 w-9 link" />
+            {/* <ComputerDesktopIcon className="xl:w-10 w-9 link" /> */}
+            <i class="material-icons">shopping_basket</i>
             <div className="absolute -top-2 -right-1 rounded-full text-white bg-blue-light p-1 flex items-center justify-center text-xs font-extrabold">
               {pcbuild?.qty}
             </div>

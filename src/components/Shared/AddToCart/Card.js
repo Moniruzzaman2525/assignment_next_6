@@ -101,7 +101,7 @@ const Card = ({ item, refetch }) => {
                     <h3 className='text-lg border-b py-2 w-1/4 text-end'>Sub-Total: <span className='ml-10 text-[#ef4a23] bold'>${totalPrice}</span></h3>
                     <h3 className='text-lg border-b py-2 w-1/4 text-end'>Total: <span className='ml-10 text-[#ef4a23] bold'>${totalPrice}</span></h3>
                 </div>
-                <div className='flex justify-between py-10 px-24'>
+                <div className='flex gap-5 justify-between py-10 px-24'>
                     <button onClick={continueShopping} className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center">Continue Shopping</button>
                     {resInfoOrder.isLoading ? <button onClick={confirmOrder} className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center">
                         <Loader />

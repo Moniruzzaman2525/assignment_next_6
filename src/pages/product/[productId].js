@@ -27,7 +27,7 @@ export const getStaticProps = async (context) => {
     const { params } = context
     const res = await fetch(`https://gadget-galaxy-server-seven.vercel.app/api/v1/product/get-product/${params.productId}`)
     // const res = await fetch(`http://localhost:5000/api/v1/product/get-product/${params.productId}`)
-    const data = await res.json()
+    const data = await res?.json()
     return {
         props: {
             item: data
