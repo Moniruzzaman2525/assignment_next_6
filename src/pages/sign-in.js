@@ -59,6 +59,7 @@ const SignIn = () => {
               </label>
               <div className="relative">
                 <input
+                defaultValue='web.moniruzzaman1@gmail.com'
                   name="email"
                   required
                   type="email"
@@ -91,6 +92,7 @@ const SignIn = () => {
               </label>
               <div className="relative">
                 <input
+                defaultValue='123456'
                   type={showPassword ? "text" : "password"}
                   name="password"
                   required
