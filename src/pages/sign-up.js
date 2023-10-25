@@ -4,26 +4,44 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useCreateUserMutation } from "@/redux/features/auth/userAuth";
 import Loader from "@/components/Shared/Loader/Loader";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "@/redux/Slice/authSlice";
 
 
 const SignIn = () => {
   const [createUser, resInfo] = useCreateUserMutation();
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [conShowPassword, setConShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     if (resInfo?.status === "fulfilled") {
+  //       const { accessToken, refreshToken, userDetails } = resInfo.data;
+  //       localStorage.setItem("accessToken", accessToken);
+  //       localStorage.setItem("refreshToken", refreshToken);
+  //       localStorage.setItem("user", JSON.stringify(userDetails));
+  //       router.push('/');
+  //     } else if (resInfo.status === "rejected") {
+  //     }
+  //   }
+  // }, [resInfo, router]);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (resInfo?.status === "fulfilled") {
-        const { accessToken, refreshToken, userDetails } = resInfo.data;
-        localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("refreshToken", refreshToken);
-        localStorage.setItem("user", JSON.stringify(userDetails));
-        router.push('/');
-      } else if (resInfo.status === "rejected") {
-      }
+    if (resInfo.status === "fulfilled") {
+      const { accessToken, refreshToken, userDetails } = resInfo.data;
+      const data = {
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+        user: JSON.stringify(userDetails),
+      };
+      console.log(data);
+      dispatch(setCredentials(data));
+      // toast.success("Login Successfully..!");
+      router.push('/');
+    } else if (resInfo.status === "rejected") {
+      toast.error(resInfo.error.data.message);
     }
-  }, [resInfo, router]);
+  }, [resInfo.status, resInfo.data, resInfo.error, dispatch, router]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,18 +50,20 @@ const SignIn = () => {
     const firstName = form.firstName.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value;
     const data = {
       firstName,
       lastName,
       email,
       password,
-      confirmPassword
+      // confirmPassword
     }
-      const res = await createUser(data);
-      if (res) {
-        toast.success("Register Your Account Successfully..!");
-      }
+    const res = await createUser(data);
+    if (resInfo.isSuccess) {
+      toast.success("Your Account Login Successfully..!");
+    }
+    if (res.error) {
+      toast.error(res.error.data.message);
+    }
   };
   return (
     <div className="flex flex-wrap justify-center items-center w-full h-screen bg-white bg-opacity-20 dark:bg-boxdark px-2 lg:px-0">
@@ -81,13 +101,13 @@ const SignIn = () => {
                     className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primaryBlue focus-visible:shadow-none dark:border-form-primaryBlue dark:bg-form-input dark:focus:border-primaryBlue placeholder:text-dark dark:placeholder-white dark:text-white"
                   />
 
-                 
+
                 </div>
               </div>
-             
+
             </div>
             <div className="mb-4">
-            <div>
+              <div>
                 <label className="mb-2.5 block font-medium text-black dark:text-white">
                   Email
                 </label>
@@ -147,7 +167,7 @@ const SignIn = () => {
                 </span>
               </div>
             </div>
-            
+
             <div className="flex justify-center w-full items-center mb-5">
               {resInfo?.isLoading ? (
                 <button className="w-full py-2 rounded-lg bg-primaryBlue text-white font-medium text-base hover:bg-primaryBlue focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primaryBlue">
@@ -164,11 +184,9 @@ const SignIn = () => {
             </div>
           </form>
           <div className="flex justify-end">
-            <button>
-              <button onClick={() => router.push('/sign-in')}>
+          <button onClick={() => router.push('/sign-in')}>
                 Sign In
               </button>
-            </button>
           </div>
         </div>
       </div>

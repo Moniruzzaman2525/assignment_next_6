@@ -14,11 +14,11 @@ const Order = ({ item, i }) => {
                             Date Added: {item.created_at}
                         </h3>
                     </div>
-                    <div className='flex justify-end px-10'>
+                    <div className='md:flex justify-end px-10'>
                         <h3 className='font-semibold'>Status</h3>
                     </div>
                 </div>
-                <div className='grid grid-cols-2'>
+                <div className='grid md:grid-cols-2'>
                     <div className='flex items-center gap-5 px-10 py-5'>
                         <img
                             src={item?.img}
@@ -29,7 +29,7 @@ const Order = ({ item, i }) => {
                         />
                         <h3>{item?.name}</h3>
                     </div>
-                    <div className='flex items-center gap-32 justify-end px-10 py-5'>
+                    <div className='flex flex-col md:flex-row items-center gap-32 justify-end px-10 py-5'>
                         <h4 className='text-[#ef4a23] text-2xl' >${item?.price}</h4>
                         <button onClick={() => setViewOrderPage(true)} className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center">View</button>
                     </div>

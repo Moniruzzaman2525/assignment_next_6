@@ -35,9 +35,13 @@ const SignIn = () => {
       email, 
       password
     }
+
    const res = await loginUser(data);
-   if (res) {
+   if (resInfo.isSuccess) {
     toast.success("Your Account Login Successfully..!");
+   }
+   if (res.error) {
+    toast.error(res.error.data.message);
    }
   };
 

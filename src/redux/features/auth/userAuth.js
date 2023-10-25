@@ -29,6 +29,14 @@ const featherAPI = apiSlice.injectEndpoints({
           };
         },
       }),
+    getAllUser: builder.query({
+        query: () => {
+          return {
+            url: `/api/v1/auth/get-user`,
+            method: "GET",
+          };
+        },
+      }),
     updateProfile: builder.mutation({
         query: (data) => {
           return {
@@ -38,6 +46,22 @@ const featherAPI = apiSlice.injectEndpoints({
           };
         },
       }),
+    updateUserRole: builder.mutation({
+        query: (data) => {
+          const id = data.id
+          return {
+            url: `/api/v1/auth/update-user-role/${id}`,
+            method: "PATCH",
+            body: data,
+          };
+        },
+      }),
+    deleteUser: builder.mutation({
+        query: (id) => ({
+          url: `/api/v1/auth/delete-user/${id}`,
+          method: "DELETE",
+        }),
+      }),
   }),
 });
 
@@ -45,5 +69,8 @@ export const {
     useCreateUserMutation,
     useLoginUserMutation,
     useGetUserProfileQuery,
-    useUpdateProfileMutation
+    useUpdateProfileMutation,
+    useGetAllUserQuery,
+    useUpdateUserRoleMutation,
+    useDeleteUserMutation
   } = featherAPI;

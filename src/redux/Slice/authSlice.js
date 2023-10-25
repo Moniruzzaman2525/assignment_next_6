@@ -16,17 +16,20 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      const { accessToken, refreshToken } = action.payload;
+      const { accessToken, refreshToken, user } = action.payload;
       state.accessToken = accessToken;
       state.refreshToken = refreshToken;
+      state.user = refreshToken;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("user", user);
     },
     logOut: (state, action) => {
       state.accessToken = null;
       state.refreshToken = null;
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
+      localStorage.removeItem("user", data.user);
       Cookies.remove("sessionid");
     },
   },

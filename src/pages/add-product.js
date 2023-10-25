@@ -92,7 +92,7 @@ const PostProduct = () => {
   };
 
   return (
-    <div className="min-h-screen  py-16 flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500">
+    <div className="min-h-screen  pt-36 pb-20 flex items-center justify-center bg-gradient-to-r from-blue-400 to-purple-500">
       <div className="bg-white p-8 rounded-lg shadow-lg w-4/5">
         <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">Add a Product</h1>
         <form onSubmit={handleSubmit}>
