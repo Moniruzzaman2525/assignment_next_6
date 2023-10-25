@@ -4,8 +4,8 @@ import { HYDRATE } from "next-redux-wrapper";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { logOut, setCredentials } from "../../Slice/authSlice";
-// const URL = "https://gadget-galaxy-server-seven.vercel.app";
-const URL = "http://localhost:5000/";
+const URL = "https://gadget-galaxy-server-seven.vercel.app";
+// const URL = "http://localhost:5000/";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: URL,
