@@ -11,7 +11,7 @@ export default function Home({ products, categories }) {
       <ProductFeed products={products} categories={categories} />
       <ChooseUs />
       <FeedbackForm />
-     
+
     </>
   );
 }

@@ -32,17 +32,17 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     const data = {
-      email, 
+      email,
       password
     }
 
-   const res = await loginUser(data);
-   if (resInfo.isSuccess) {
-    toast.success("Your Account Login Successfully..!");
-   }
-   if (res.error) {
-    toast.error(res.error.data.message);
-   }
+    const res = await loginUser(data);
+    if (resInfo.isSuccess) {
+      toast.success("Your Account Login Successfully..!");
+    }
+    if (res.error) {
+      toast.error(res.error.data.message);
+    }
   };
 
   return (
@@ -59,7 +59,7 @@ const SignIn = () => {
               </label>
               <div className="relative">
                 <input
-                defaultValue='web.moniruzzaman1@gmail.com'
+                  defaultValue='web.moniruzzaman1@gmail.com'
                   name="email"
                   required
                   type="email"
@@ -92,7 +92,7 @@ const SignIn = () => {
               </label>
               <div className="relative">
                 <input
-                defaultValue='123456'
+                  defaultValue='123456'
                   type={showPassword ? "text" : "password"}
                   name="password"
                   required
@@ -122,16 +122,17 @@ const SignIn = () => {
               ) : (
                 <button
                   type="submit"
-                  className="w-full  cursor-pointer rounded-lg border border-primaryBlue bg-primaryBlue px-4 py-2 font-bold text-lg text-black transition hover:bg-opacity-90"
+                  className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center"
                 >
                   Sign In
                 </button>
               )}
             </div>
           </form>
-          <div className="flex justify-end">
-            <button onClick={()=> router.push('/sign-up')}>
-              Sign Up
+          <div className="flex gap-2 items-center justify-end">
+            <h3>Don't have an account?</h3>
+            <button className="font-bold" onClick={() => router.push('/sign-up')}>
+              Sign up
             </button>
           </div>
         </div>

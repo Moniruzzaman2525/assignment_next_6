@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChooseUs = () => {
     return (
-        <div className='m-10 md:px-10 md:pt-10 rounded-xl bg-[#f5f5f5]'>
+        <div className='m-10 md:px-10 mx-auto max-w-screen-xl md:pt-10 rounded-xl bg-[#f5f5f5]'>
             <div>
                 <div>
                     <h2 className='text-4xl font-bold text-center p-3'>Why Choose Us?</h2>

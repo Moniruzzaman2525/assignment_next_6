@@ -6,28 +6,28 @@ import { useState } from "react";
 import HomePageCard from "../Shared/Card/HomePageCard";
 function ProductFeed() {
   const { data, isLoading, refetch } = useGetAllProductQuery();
-  console.log(data);
-const [randomProducts, setRandomProducts] = useState([]);
-function shuffleArray(array) {
-  const shuffledArray = [...array];
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  const [randomProducts, setRandomProducts] = useState([]);
+  function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
   }
-  return shuffledArray;
-}
 
-useEffect(() => {
-  if (data) {
-    const shuffledProducts = shuffleArray(data.data).slice(0, 20); // Include only the first 20 items
-    setRandomProducts(shuffledProducts);
-  }
-}, [data]);
+  useEffect(() => {
+    if (data) {
+      const shuffledProducts = shuffleArray(data.data).slice(0, 20);
+      setRandomProducts(shuffledProducts);
+    }
+  }, [data]);
 
   return (
     <div className="">
       <div className="w-full py-20 bg-gray-100 mt-10" id="products-feed">
-        <Categories />
+          <Categories />
+
 
         <div className="pt-20">
           <h2 className="text-center capitalize text-2xl font-semibold ">

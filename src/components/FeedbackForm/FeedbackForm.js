@@ -4,8 +4,8 @@ import FeedFrom from './FeedFrom';
 
 const FeedbackForm = () => {
     return (
-        <div className='p-10'>
-            <div className='flex flex-col gap-2 py-10'>
+        <div className='p-10 '>
+            <div className='flex max-w-screen-xl flex-col gap-2 py-10'>
                 <h className="text-4xl font-bold text-center p-3">Feedback Form</h>
                 <h4 className='text-center md:px-40'>Please provide a brief description of your feedback</h4>
             </div>

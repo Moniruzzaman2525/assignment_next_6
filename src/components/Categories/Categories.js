@@ -18,7 +18,7 @@ const Categories = () => {
       </div>
 
       <div className="flex justify-center w-full">
-        <div className="flex flex-wrap justify-center">
+        <div className="grid grid-flow-row-dense grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 grid-cols-1 mx-auto max-w-screen-xl gap-x-6 gap-y-8">
           {productFeather?.data?.map((item, i) => (
             <button
             onClick={()=>opneProduct(item)}

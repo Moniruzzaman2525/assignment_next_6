@@ -34,7 +34,6 @@ const SignIn = () => {
         refreshToken: refreshToken,
         user: JSON.stringify(userDetails),
       };
-      console.log(data);
       dispatch(setCredentials(data));
       // toast.success("Login Successfully..!");
       router.push('/');
@@ -176,17 +175,18 @@ const SignIn = () => {
               ) : (
                 <button
                   type="submit"
-                  className="w-full text-black cursor-pointer rounded-lg border border-primaryBlue bg-primaryBlue px-4 py-2 font-bold text-lg  transition hover:bg-opacity-90"
+                  className="button lg:px-10 lg:py-2 px-8  xl:text-xl lg:text-lg text-base flex items-center justify-center"
                 >
                   Sign Up
                 </button>
               )}
             </div>
           </form>
-          <div className="flex justify-end">
-          <button onClick={() => router.push('/sign-in')}>
-                Sign In
-              </button>
+          <div className="flex gap-2 items-center justify-end">
+            <h3>Already have an account?</h3>
+            <button className="font-bold" onClick={() => router.push('/sign-in')}>
+              Sign In
+            </button>
           </div>
         </div>
       </div>
