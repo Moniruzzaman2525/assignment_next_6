@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
-
+import { BsPerson } from 'react-icons/bs';
+import { CiShoppingCart } from 'react-icons/ci';
 function MainNavbar() {
   const router = useRouter();
   const [user, setUser] = useState(false);
@@ -42,18 +43,18 @@ function MainNavbar() {
             {user?.role === 'ADMIN' && <button onClick={()=> router.push('/add-product')} className="flex items-center gap-2 bg-gray-200 p-3 rounded hover:bg-blue-400 hover:text-white">
               Add Product
             </button>}
-           {user?.role === 'ADMIN' && <button onClick={()=> router.push('/products/view-all-products')} className="flex hidden items-center gap-2 bg-gray-200 p-3 rounded hover:bg-blue-400 hover:text-white">
-              View All Product
+           {user?.role === 'ADMIN' && <button onClick={()=> router.push('/products/view-all-products')} className="flex items-center gap-2 bg-gray-200 p-3 rounded hover:bg-blue-400 hover:text-white">
+              Manage Product
             </button>}
            {user?.role === 'ADMIN' && <button onClick={()=> router.push('/auth/view-all-user')} className="flex items-center gap-2 bg-gray-200 p-3 rounded hover:bg-blue-400 hover:text-white">
               View All User
             </button>}
             <button onClick={addToCartFun} className="flex items-center gap-2 bg-gray-200 p-3 rounded hover:bg-blue-400 hover:text-white">
-              <i class="material-icons">shopping_basket</i>  Cart
+             <CiShoppingCart className="text-2xl" /> Cart
             </button>
             <div className="flex items-center gap-4">
               <div>
-                <i class="material-icons">person</i>
+                <BsPerson className="text-2xl" />
               </div>
               <div>
                 <div className="">

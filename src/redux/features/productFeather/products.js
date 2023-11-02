@@ -36,11 +36,18 @@ const featherAPI = apiSlice.injectEndpoints({
           };
         },
       }),
+      deleteToProduct: builder.mutation({
+        query: (id) => ({
+          url: `/api/v1/product/delete-product/${id}`,
+          method: "DELETE",
+        }),
+      }),
   }),
 });
 
 export const {
     useAddProductsMutation,
     useGetFeatherProductQuery,
-    useGetAllProductQuery
+    useGetAllProductQuery,
+    useDeleteToProductMutation
   } = featherAPI;

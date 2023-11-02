@@ -1,12 +1,9 @@
-import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import MobileNavbar from "../Shared/Navbar/MobileNavbar";
-import { TailSpin } from "react-loader-spinner";
 
 const Layout = ({ children }) => {
-  const {session, status} = useSession();
 
   return (
     <>
@@ -54,27 +51,12 @@ const Layout = ({ children }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className="layout">
-        {/* {status === "loading" ? (
-          <div className="fixed inset-0 flex items-center justify-center bg-white z-50 loader">
-            <TailSpin
-              height="80"
-              width="80"
-              color="#0a81ab"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-          </div>
-        ) : ( */}
           <>
             <Navbar />
             <MobileNavbar />
             {children}
             <Footer />
           </>
-        {/* )} */}
       </div>
     </>
   );

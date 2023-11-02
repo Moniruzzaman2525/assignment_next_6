@@ -15,20 +15,3 @@ export default function Home({ products, categories }) {
     </>
   );
 }
-
-// export const getStaticProps = wrapper.getStaticProps((store) => async () => {
-//   const products = await store.dispatch(
-//     productApi.endpoints.getProducts.initiate()
-//   );
-
-//   const categories = await store.dispatch(
-//     categoriesApi.endpoints.getCategories.initiate()
-//   );
-
-//   return {
-//     props: {
-//       products,
-//       categories,
-//     },
-//   };
-// });
