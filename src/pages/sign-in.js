@@ -130,7 +130,7 @@ const SignIn = () => {
             </div>
           </form>
           <div className="flex gap-2 items-center justify-end">
-            <h3>Don't have an account?</h3>
+            <h3>Do not have an account?</h3>
             <button className="font-bold" onClick={() => router.push('/sign-up')}>
               Sign up
             </button>
